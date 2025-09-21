@@ -1,0 +1,86 @@
+#include <iostream>
+using namespace std;
+class queue
+{
+    int front;
+    int rear;
+    int *arr;
+    int size;
+
+public:
+    queue()
+    {
+        int size = 1000;
+        arr = new int[size];
+        front = 0;
+        rear = 0;
+    }
+    bool isfull()
+    {
+        if (rear == size)
+        {
+            cout << "queue is full " << endl;
+            return true;
+        }
+        else
+            return false;
+    }
+
+    void enqueue(int data)
+    {
+        if (rear == size)
+        {
+            cout << "queue is full" << endl;
+        }
+        else
+        {
+            arr[rear] = data;
+            rear++;
+        }
+    }
+    void dequeue()
+    {
+        if (front == rear)
+        {
+            cout << "queue is empty" << endl;
+        }
+        else
+        {
+            int ans = arr[front];
+            arr[front] = -1;
+            front++;
+            if (front == rear)
+            {
+                front = 0;
+                rear = 0;
+            }
+        }
+    }
+    bool isempty()
+    {
+        if (front == rear)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    int front()
+    {
+        if (front == rear)
+        {
+            return -1;
+        }
+        else
+        {
+            return arr[front];
+        }
+    }
+};
+int main()
+{
+
+    return 0;
+}
